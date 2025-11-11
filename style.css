@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body {
+	background-color: #363332;
+	color: white;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 60px;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: white;
+	transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+	transition: #2C2B2A;
+}
+
+.buttons {
+	text-decoration: none;
+	color: #2C2B2A;
+	margin-left: 20px;
+	padding: 8px 18px;
+	border: 1px solid #888;
+	border-radius: 20px;
+	transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
