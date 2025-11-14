@@ -1,0 +1,132 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #363332;
+}
+.wrapper {
+    width: 490px;
+    background: #494949;
+    color: white;
+    border-radius: 25px;
+    padding: 60px 30px;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+}
+ .logo-title-container {
+    display: flex;       
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 35px;  
+}
+
+.logo-title-container h1 a {
+    text-decoration: none;
+    color: white;
+    display: flex;       
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 50px; 
+}
+
+.logo-img {
+    width: 100px; 
+    height: 100px;
+    margin-right: 1px;
+    margin-bottom: 50px;
+}
+
+.LogReg {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0 85px; 
+}
+
+.LogReg a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.LogReg a:hover {
+    text-decoration: underline;
+    text-decoration-color: orangered;
+    text-decoration-thickness: 20%;
+}
+
+.wrapper .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+.input-box input {
+    width: 360px;
+    margin: 5px 0 5px 35px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid rgba(225, 225, 255, .2);
+    border-radius: 15px;
+    font-size: 16px;
+    color: white;
+    padding: 15px 20px 15px;
+}
+.input-box input::placeholder {
+    color: white;
+}
+.wrapper .remember-forgot{
+    display:flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 20px 270px;
+}
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+}
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.wrapper .btn{
+    width: 360px;
+    margin: 15px 0 20px 35px;
+    height: 45px;
+    background: rgb(199, 78, 8);
+    border: none;
+    outline: none;
+    font-weight: normal;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600; 
+    transition: 0.3s ease;
+}
+.wrapper .btn:hover {
+    background: rgb(128, 51, 7);
+}
+ .wrapper .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+.register-link p a{
+    color: rgb(243, 77, 12);
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}

@@ -1,45 +1,167 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: sans-serif;
+    text-decoration: none;
 }
 
 body {
-	background-color: #363332;
-	color: white;
+    background-color: #363332; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    margin: 0; 
 }
 
+/*-- Navbar section --- */
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px 60px;
+    display: flex;
+    background: transparent; 
+    justify-content: space-between; 
+    font-family: Arial, Helvetica, sans-serif; 
+    padding: 15px 50px;
+    align-items: center;
+	flex-shrink: 0;
 }
 
-.navbar ul li a {
+/* -- logo section -- */
+.logo {
+    display: flex;
+    align-items: center; 
+    gap: 0px; 
+	flex-basis: 150px;
+	flex-shrink: 0;
+}
+
+.logo-img {
+	display: flex;
+    height: 70px; 
+    width: auto;
+}
+
+.logo a {
+	margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+/* -- menu section */
+.menu {
+	flex-grow: 1;
+	text-align: center;
+}
+
+ul {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 0; 
+    margin: 0;
+}
+
+ul li a {
+	text-decoration: none;	color: white;
+}
+
+.menu ul {
+    display: inline-block; 
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin: 0 15px; 
+    list-style: none;
+    font-size: 16px;
+}
+
+/* -- buttons section -- */
+.buttons {
+	text-align: right;	display: flex;
+	align-items: center;
+	justify-content: flex-end;	
+	gap: 10px;
+}
+.signIn, .signUp {
+    background-color: transparent;
+    border: 1px solid white;
+	transition: .3s ease;
+    border-radius: 20px; 
+    color: white;
+    padding: 10px 15px; 
+    width: 100px;
+    font-size: 15px;
+    cursor: pointer
+}
+
+.signIn {
+    border: none;
+    border-radius: 0; 
+    padding: 10px 15px; 
+}
+
+.signUp:hover {
+	background-color: rgb(224, 106, 37);
+}
+
+.signIn:hover{
+    text-decoration: underline;
+}
+
+.buttons button a {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+    padding: 0;
+    width: 100%;
+}
+
+/* -- content section -- */
+
+.content {
+	text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto; 
+    color: white;
+    padding: 0 20px; 
+    max-width: 900px; 
+}
+
+.content .par{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.9; 
+    margin: 0 auto 40px auto;
+}
+
+.content h1 { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 20px; 
+    letter-spacing: 2px;
+}
+
+.content .start-now {
+	width: 160px;
+	height: 40px;
+	background: rgb(224, 89, 39);
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.content .start-now a {
 	text-decoration: none;
 	color: white;
-	transition: 0.3s;
+	transition: .3s ease;
 }
 
-.navbar ul li a:hover {
-	transition: #2C2B2A;
+.start-now:hover {
+	background-color: rgb(145, 43, 3);
 }
-
-.buttons {
-	text-decoration: none;
-	color: #2C2B2A;
-	margin-left: 20px;
-	padding: 8px 18px;
-	border: 1px solid #888;
-	border-radius: 20px;
-	transition: all 0.3s ease;
-}
-
-
-
-
-
 
 

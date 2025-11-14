@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device=width, initial-scale=1.0">
-  <title>Bill Calculator</title>
-  <link rel="stylesheet" href="style.css">
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bill Calculator</title>  <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="img/bill.png">
 </head>
 <body>
+	<nav class="navbar">
+			<div class="logo">
+            <img src="img/bill.png" alt="Bill Calculator" class="logo-img">
+            <a href="#">BillCalculator</a> 
+            </div>
 
-  <header class="navbar">
-    <div class="logo">Bill Calculator</div>
-    <nav>
-      <ul>
-        <li><a href="#how">How it works</a>
-          <li><a href="#about">About</a>
-            <li><a href="#contact">Contact</a>
-      <ul>
-    </nav>
+		<div class="menu">
+			<ul>
+				<li><a href="#">How it works</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+			</div>
 
-    <div class="buttons">
-        <button class="sign-up">Sign up</button>
-        <button class="sign in">Sign in</button>
-    </div>
-  </header>
+	   <div class="buttons">
+         <button class="signIn"><a href="signin.html">Sign In</a></button>
+          <button class="signUp"><a href="signup.html">Sign Up</a></button>
+      </div>
+		</div>
+	</nav>
+	<div class="content">
+			<h1>Calculate Your Monthly Electric Bill Easily!</h1>
+			<p class="par">Enter your appliance usage and get an instant estimate of your total energy cost.</p>
 
-  <section>
-    <h1>Calculate Your Monthly Electric Bill Easily!</h1>
-    <p>Enter your appliance usage and get an instant estimate of your total energy cost.</p>
-  </section>
-
-</body>
-</html>
+			<button class="start-now"><a href="startNow.html">Start Now</a></button>
+		</div>
+</body></html>
