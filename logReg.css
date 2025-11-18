@@ -84,7 +84,7 @@ body {
     padding: 15px 20px 15px;
 }
 .input-box input::placeholder {
-    color: white;
+    color: rgb(175, 175, 175);
 }
 .wrapper .remember-forgot{
     display:flex;
@@ -99,7 +99,7 @@ body {
 .remember-forgot a:hover {
     text-decoration: underline;
 }
-.wrapper .btn{
+.wrapper .btn {
     width: 360px;
     margin: 15px 0 20px 35px;
     height: 45px;

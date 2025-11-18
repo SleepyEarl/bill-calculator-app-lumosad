@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+    <link rel="icon" type="image/png" href="img/bill.png">
+</head>
+<body>  
+
+        <nav class="nav">
+            <div class="logo">
+            <img src="img/bill.png" alt="Bill Calculator" class="logo-img">
+            <a href="#">BillCalculator</a>
+            </div>
+        </nav>
+
+        <div class="wrapper">
+        <h2>Electicity Bill Calculator</h2>
+
+            <form onsubmit="event.preventDefault();">
+            
+            <div class="input-box">
+                <label for="month">Month:</label>
+                <input type="month" id="month" placeholder="e.g. January" required> <br>
+            </div>
+                
+            <div class="input-box">
+                <label for="consumption">Power Consumptoin:</label>
+                <input type="number" id="consumption" required> <br>
+            </div>
+               
+        <div class="input-box">
+            <label for="cost">Cost per kilowatt-hour:</label>
+            <input type="number" id="cost" required> <br>
+        </div>
+                
+            </form>
+
+            <div id="result"></div>
+
+            <table id="tableRow">
+                    <tr>
+                        <td>Month</td>
+                        <td>Power Consumption</td>
+                        <td>Cost Per Kwh</td>
+                        <td>Result</td>
+                    </tr>
+            </table>
+
+        
+         <button type="button" onclick="myFunction()" id="btn_calculate" class="btn">Calculate</button>
+        <script>
+            let btn_calculate = document.getElementById("btn_calculate");
+            function myFunction() {
+                
+                let month = document.getElementById("month").value;
+                let consumption = document.getElementById("consumption").value;
+                let cost = document.getElementById("cost").value;
+                let result = document.getElementById("result");
+
+                if (month === "" || consumption === "" || cost === "") {
+                alert("Please fill out all fields!");
+                return;
+            }
+ 
+                let result_value = consumption * cost;
+                result.innerHTML = `You bill is: ₱${result_value.toFixed(2)}`;
+ 
+                var tableRow = document.getElementById("tableRow");
+                var newRow = tableRow.insertRow();
+ 
+                var Month = newRow.insertCell(0);
+                var Powerconsumption = newRow.insertCell(1);
+                var Cost = newRow.insertCell(2);
+                var Result = newRow.insertCell(3);
+      
+                Month.innerHTML = month;
+                Powerconsumption.innerHTML = consumption;
+                Cost.innerHTML = cost;
+                Result.innerHTML = result_value.toFixed(2);
+            };
+        </script>
+
+
+        </div>
+
+        
+    
+</body>
+</html>
