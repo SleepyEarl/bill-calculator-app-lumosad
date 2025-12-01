@@ -255,4 +255,78 @@ ul li a {
     margin-bottom: 10px;
 }
 
+@media (max-width: 768px) {
 
+.navbar {
+    flex-direction: column;
+    height: 100px;
+    text-align: left;
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.menu ul {
+    display: none;
+}
+
+.menu ul li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.buttons {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons button {
+    width: 150px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.content h1 {
+    font-size: 48px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.content .par {
+    font-size: 16px;
+}
+
+.content {
+     margin-top: 20px;
+}
+
+.how, .about {
+    padding: 20px 20px;
+    margin: 80px auto;
+}
+
+.how p, .about p {
+    font-size: 16px;
+    text-align: center;
+}
+
+.how img, .about img {
+     width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.contact {
+    margin: 20px;
+    padding: 20px 10px;
+}
+
+.contact ul li {
+    font-size: 18px;
+    justify-content: center;
+    gap: 10px;
+}
+}
