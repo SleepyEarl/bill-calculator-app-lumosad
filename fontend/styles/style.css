@@ -2,6 +2,10 @@
     text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #363332; 
     min-height: 100vh; 
@@ -10,15 +14,21 @@ body {
     margin: 0; 
 }
 
+
 /*-- Navbar section --- */
 .navbar {
     display: flex;
-    background: rgb(36, 35, 35); 
     justify-content: space-between; 
     font-family: Arial, Helvetica, sans-serif; 
     padding: 15px 50px;
+    backdrop-filter: blur(10px);
     align-items: center;
-	flex-shrink: 0;
+    position: fixed; 
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 90%; 
+    flex-shrink: 0;
 }
 
 /* -- logo section -- */
@@ -77,7 +87,8 @@ ul li a {
 
 /* -- buttons section -- */
 .buttons {
-	text-align: right;	display: flex;
+	text-align: right;	
+    display: flex;
 	align-items: center;
 	justify-content: flex-end;	
 	gap: 10px;
@@ -119,13 +130,13 @@ ul li a {
 /* -- content section -- */
 
 .content {
-	text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: auto; 
+    margin: 250px auto; 
+    text-align: center;
     color: white;
-    padding: 0 20px; 
-    max-width: 900px; 
+    max-width: 900px;
+    padding: 0 20px;
 }
+
 
 .content .par{
     text-align: center;
@@ -162,6 +173,86 @@ ul li a {
 
 .start-now:hover {
 	background-color: rgb(145, 43, 3);
+}
+
+.how {
+    scroll-margin-top: 50px;  
+    margin: 350px auto;
+    padding: 40px 100px;
+    max-width: 900px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.how h2 {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.how p {
+    text-align: left;
+    font-size: 18px;
+}
+
+.how .result-img {
+    border-radius: 20px;
+}
+
+.result-img {
+    border-color: white;
+}
+
+.about {
+    scroll-margin-top: 50px;
+    margin: 150px auto;
+    padding: 40px 150px;
+    max-width: 900px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about p {
+    text-align: left;
+    font-size: 19px;
+}
+
+.about h2 {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.contact {
+    background: rgb(160, 55, 17);
+    margin: 70px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+}
+
+.contact h2 {
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.contact p {
+    font-size: 20px;
+}
+
+.contact ul li {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+.contact ul li {
+    list-style: none;
+    gap: 60px;
+    margin-bottom: 10px;
 }
 
 

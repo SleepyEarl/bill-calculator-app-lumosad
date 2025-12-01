@@ -17,7 +17,7 @@
         </nav>
 
         <div class="wrapper">
-        <h2>Electicity Bill Calculator</h2>
+        <h2>Electricity Bill Calculator</h2>
 
             <form onsubmit="event.preventDefault();">
             
@@ -27,7 +27,7 @@
             </div>
                 
             <div class="input-box">
-                <label for="consumption">Power Consumptoin:</label>
+                <label for="consumption">Power Consumption:</label>
                 <input type="number" id="consumption" required> <br>
             </div>
                
@@ -66,7 +66,7 @@
             }
  
                 let result_value = consumption * cost;
-                result.innerHTML = `You bill is: ₱${result_value.toFixed(2)}`;
+                result.innerHTML = `Your bill is: ₱ ${result_value.toFixed(2)}`;
  
                 var tableRow = document.getElementById("tableRow");
                 var newRow = tableRow.insertRow();

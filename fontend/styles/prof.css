@@ -26,32 +26,35 @@ body {
 	flex-shrink: 0;
 }
 
-.logo-img {
-	display: flex;
-    margin: 0 0 0 690px;
-    height: 70px; 
-    width: auto;
+.logo-img { 
+    display: flex; 
+    margin: 0 0 0 685px;
+    height: 75px; 
+    width: auto; 
 }
 
 .logo a {
 	margin: 0;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     text-decoration: none; 
 }
 
 .wrapper {
-    height: 650px;
+    width: 650px;
     background: #494949;
-    justify-content: center;
-    align-items: center;
     color: white;
-    border-radius: 30px;
-    margin: 0 400px 0 400px;
-    padding: 60px 30px;
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    padding: 100px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;  
 }
+
 
 .wrapper h1 {
     font-family: Arial, Helvetica, sans-serif;
@@ -67,11 +70,92 @@ body {
     font-weight: bold;
     text-align: center;
     margin-bottom: 300px;
+    padding: 20px 5px 0 10px;
+}
+
+.prof .prof-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 3px solid white;
+    display: block;
+    transition: 0.3s ease; 
+}
+
+.prof-img:hover {
+    transform: scale(1.2);
 }
 
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.change, .remove {
+    background-color:rgb(238, 88, 50);
+    border-radius: 14px;
+    color: white;
+    padding: 10px 15px;
+    width: 110px;
+    cursor: pointer;
+    border: none;
+}
+
+.change:hover{
+    background: rgb(131, 30, 5);
+}
+
+.remove:hover {
+    background: rgb(131, 30, 5);
+}
+
+.save, .logout {
+    background-color: rgb(238, 88, 50);
+    border-radius: 14px;
+    margin-top: 20px;
+    color: white;
+    padding: 10px 15px;
+    width: 110px;
+    cursor: pointer;
+    border: none;
+}
+
+.save:hover {
+    background: rgb(131, 30, 5);
+}
+
+.logout:hover{
+    background: rgb(131, 30, 5);
+}
 
 
+.buttons button a {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+    padding: 0;
+    width: 100%;
+}
+
+.input-box {
+    margin-top: 12px;
+}
+
+.input-box input {
+    width: 300px;
+    height: 40px;
+    background: white;
+    border: 1px solid rgba(225, 225, 255, .2);
+    border-radius: 10px;
+    font-size: 16px;
+    color: black;
+    padding: 0 15px;
+}
 
 
 
