@@ -1,6 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+
 * {
     text-decoration: none;
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -19,7 +23,8 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between; 
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: 'Titillium Web'; 
+    text-transform: uppercase;
     padding: 15px 50px;
     backdrop-filter: blur(10px);
     align-items: center;
@@ -29,6 +34,11 @@ body {
     transform: translateX(-50%);
     width: 90%; 
     flex-shrink: 0;
+}
+
+.nav * {
+    box-sizing: border-box;
+    transition: all .35 ease;
 }
 
 /* -- logo section -- */
@@ -69,7 +79,12 @@ ul {
 }
 
 ul li a {
-	text-decoration: none;	color: white;
+	text-decoration: none;	
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: underline;
 }
 
 .menu ul {
@@ -131,6 +146,7 @@ ul li a {
 
 .content {
     margin: 250px auto; 
+    margin-bottom: 35px;
     text-align: center;
     color: white;
     max-width: 900px;
@@ -140,17 +156,17 @@ ul li a {
 
 .content .par{
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web';
     line-height: 1.9; 
     margin: 0 auto 40px auto;
 }
 
 .content h1 { 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web';
     font-size: 35px;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-bottom: 20px; 
     letter-spacing: 2px;
 }
@@ -183,7 +199,7 @@ ul li a {
     border-radius: 20px;
     text-align: center;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web' ;
 }
 
 .how h2 {
@@ -212,7 +228,7 @@ ul li a {
     border-radius: 20px;
     text-align: center;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Titillium Web';
 }
 
 .about p {
@@ -226,33 +242,65 @@ ul li a {
 }
 
 .contact {
-    background: rgb(160, 55, 17);
-    margin: 70px;
+    background: rgba(160, 55, 17, 0.85);
+    margin: 70px auto;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 15px;
     text-align: center;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 15px;
+    font-family: 'Titillium Web';
 }
 
 .contact h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
     text-decoration: underline;
-    font-size: 30px;
 }
 
 .contact p {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
-.contact ul li {
+.contact-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 18px 20px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    font-size: 25px;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.3s ease;
 }
 
-.contact ul li {
-    list-style: none;
-    gap: 60px;
-    margin-bottom: 10px;
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.03);
+}
+.contact-item i {
+    font-size: 30px;
+}
+
+
+.contact-item a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -320,13 +368,16 @@ ul li a {
 }
 
 .contact {
-    margin: 20px;
-    padding: 20px 10px;
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .contact-item {
+        padding: 15px;
+    }
+
+    .contact-item a {
+        font-size: 18px;
+    }
 }
 
-.contact ul li {
-    font-size: 18px;
-    justify-content: center;
-    gap: 10px;
-}
-}

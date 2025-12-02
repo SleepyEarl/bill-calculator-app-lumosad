@@ -93,6 +93,7 @@ body {
 
 .change, .remove {
     background-color:rgb(238, 88, 50);
+    font-size: 15px;
     border-radius: 14px;
     color: white;
     padding: 10px 15px;
@@ -111,6 +112,7 @@ body {
 
 .save, .logout {
     background-color: rgb(238, 88, 50);
+    font-size: 15px;
     border-radius: 14px;
     margin-top: 20px;
     color: white;
