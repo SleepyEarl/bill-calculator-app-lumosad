@@ -19,19 +19,102 @@
         <div class="wrapper">
         <h2>Billing History</h2>
         
-            <div id="result"></div>
+            <div id="Result"></div>
  
-            <table id="tableRow">
+            <table id="myTable" border="1">
+                    <thead>
                     <tr>
-                        <td>Month</td>
-                        <td>Power Consumption</td>
-                        <td>Cost Per Kwh</td>
-                        <td>Result</td>
+                        <th>Month</th>
+                        <th>Power Consumption (kWh)</th>
+                        <th>Cost Per kWh (₱)</th>
+                        <th>Result (₱)</th>
                     </tr>
+                </thead>
+                 <tbody>
+                    <!-- Rows will be inserted here via JavaScript -->
+                    <tr class="empty-row">
+                        <td colspan="4" class="empty-message">No calculations yet. <a>Calculate your first bill</a></td>
+                    </tr>
+                </tbody>
             </table>
 
         </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+         document.addEventListener('DOMContentLoaded', async () => {
+            const session = await initAuth();
+            if (session) {
+                await loadCalculations();
+            }
+        });
 
+         async function loadCalculations() {
+            const user = await getCurrentUser();
+            if (!user) {
+                return;
+            }
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from('calculations')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .order('created_at', { ascending: false });
+
+                if (error) {
+                    console.error('Error loading calculations:', error);
+                    alert('Error loading calculations: ' + error.message);
+                    return;
+                }
+
+                const table = document.getElementById("myTable");
+                const tbody = table.querySelector('tbody');
+                
+                // Clear existing rows (except empty message)
+                tbody.innerHTML = '';
+
+                if (data && data.length > 0) {
+                    // Add each calculation as a row
+                    data.forEach(calc => {
+                        var row = tbody.insertRow();
+                        
+                        var cellMonth = row.insertCell(0);
+                        var cellPowerConsumption = row.insertCell(1);
+                        var cellCostPerKwh = row.insertCell(2);
+                        var cellResult = row.insertCell(3);
+
+                        cellMonth.innerHTML = calc.month;
+                        cellPowerConsumption.innerHTML = parseFloat(calc.power_consumption).toFixed(2);
+                        cellCostPerKwh.innerHTML = "₱ " + parseFloat(calc.cost_per_kwh).toFixed(2);
+                        cellResult.innerHTML = "₱ " + parseFloat(calc.result).toFixed(2);
+                    });
+                } else {
+                    // Show empty message
+                    var emptyRow = tbody.insertRow();
+                    emptyRow.className = 'empty-row';
+                    var emptyCell = emptyRow.insertCell(0);
+                    emptyCell.colSpan = 4;
+                    emptyCell.className = 'empty-message';
+                    emptyCell.innerHTML = 'No calculations yet. <a href="calculator.html">Calculate your first bill</a>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error loading calculations: ' + error.message);
+            }
+        }
+
+        async function handleLogout() {
+            const success = await signOut();
+            if (success) {
+                window.location.href = 'signin.html';
+            } else {
+                alert('Error logging out. Please try again.');
+            }
+        }
+    </script>
         
     
 </body>

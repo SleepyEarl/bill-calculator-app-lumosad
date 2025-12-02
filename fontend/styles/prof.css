@@ -21,6 +21,7 @@ body {
 
 .logo {
     display: flex;
+    position: fixed;
     align-items: center;  
 	flex-basis: 150px;
 	flex-shrink: 0;
@@ -28,7 +29,7 @@ body {
 
 .logo-img { 
     display: flex; 
-    margin: 0 0 0 685px;
+    margin: 0 0 -40px 685px;
     height: 75px; 
     width: auto; 
 }
@@ -36,6 +37,7 @@ body {
 .logo a {
 	margin: 0;
     color: white;
+    margin-bottom: -40px;
     font-size: 25px;
     font-weight: bold;
     text-decoration: none; 
@@ -47,6 +49,7 @@ body {
     color: white;
     border-radius: 25px;
     padding: 100px;
+    margin-top: 25px;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
     position: fixed;
     top: 50%;
@@ -110,7 +113,7 @@ body {
     background: rgb(131, 30, 5);
 }
 
-.save, .logout {
+.logout {
     background-color: rgb(238, 88, 50);
     font-size: 15px;
     border-radius: 14px;
@@ -120,10 +123,6 @@ body {
     width: 110px;
     cursor: pointer;
     border: none;
-}
-
-.save:hover {
-    background: rgb(131, 30, 5);
 }
 
 .logout:hover{
@@ -139,11 +138,18 @@ body {
     width: 100%;
 }
 
-.input-box {
+
+.input-box label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input-group {
     margin-top: 12px;
 }
 
-.input-box input {
+.input-group input {
     width: 300px;
     height: 40px;
     background: white;
@@ -152,6 +158,22 @@ body {
     font-size: 16px;
     color: black;
     padding: 0 15px;
+}
+
+.update-btn {
+    width: 20%;
+    background-color: rgb(238, 88, 50);
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background: rgb(131, 30, 5);
 }
 
 

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Calculator Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="styles/dash.css">
-    <link rel="icon" type="image/png" href="/img/bill.png">
+    <link rel="icon" type="image/png" href="img/bill.png">
 </head>
 <body>  
 
@@ -20,6 +20,7 @@
             <form action="">
 
                 <h1>Dashboard</h1>
+                <p class="welcome-text">Welcome back! Manage your electricity bill calculations.</p>
 
             <div class="buttons">
             <a href="calculator.html">
@@ -50,6 +51,24 @@
     
             </form>
         </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>  
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const session = await initAuth();
+            if(session) {
+                const user = await getCurrentUser();
+                if(user) {
+                    const welcomeText = document.querySelector('.welcome-text');
+                    const userName = user.user_metadata?.full_name || user.email;
+                    if(welcomeText) {
+                        welcomeText.textContent = `Welcome back, ${userName}! Manage your electricity bill calculations.`;
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

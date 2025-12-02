@@ -22,14 +22,24 @@
 
     
             <div class="input-box">
-                <input type="email" placeholder="Email" required>
+                <label for="reg_name"></label>
+                <input type="text" id="reg_name" name="reg_name" placeholder="Full Name" required>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <label for="reg_email"></label>
+                <input type="email" id="reg_email" name="reg_email" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <label for="reg_password"></label>
+                <input type="password" id="reg_password" name="reg_password" placeholder="Password" required>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Confirm Password" required>
+                <label for="reg_confirm_password"></label>
+                <input type="password" id="reg_confirm_password" name="reg_confirm_password" placeholder="Confirm Password" required>
             </div>
+            
+            
 
             <button type="submit" class="btn">Register</button>
             <div class="register-link">
@@ -37,5 +47,72 @@
             </div>
         </form>
     </div>
+
+      <!-- Supabase CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="js/supabase-config.js"></script>
+        <script>
+            // Redirect if already logged in
+             document.querySelector("form").addEventListener("submit", async (e) => {
+        e.preventDefault(); 
+        handleRegister();
+    });
+
+    async function handleRegister() {
+        const name = document.getElementById("reg_name").value;
+        const email = document.getElementById("reg_email").value;
+        const password = document.getElementById("reg_password").value;
+        const confirmPassword = document.getElementById("reg_confirm_password").value;
+
+        if (!name || !email || !password || !confirmPassword) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        if (password.length < 10) {
+            alert("Password must be at least 6 characters long!");
+            return;
+        }
+
+        // correct submit button
+        const submitBtn = document.querySelector(".btn");
+        submitBtn.innerText = "Registering...";
+        submitBtn.disabled = true;
+
+        const { data, error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: {
+                data: { full_name: name }
+            }
+        });
+
+        if (error) {
+            alert("Registration failed: " + error.message);
+            submitBtn.innerText = "Register";
+            submitBtn.disabled = false;
+            return;
+        }
+
+        alert("Registration successful! Please verify your email.");
+        window.location.href = "signin.html"; // fix redirect
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        await redirectIfAuthenticated();
+    });
+
+    async function redirectIfAuthenticated() {
+        const session = await checkAuth();
+        if (session) {
+            window.location.href = "dashboard.html";
+        }
+    }
+        </script>
 </body>
 </html>

@@ -69,6 +69,16 @@ body {
     margin: 5px 0 50px 0px;
 }
 
+.wrapper p {
+    text-decoration: none;
+    margin-top: 5px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    text-align: center;
+}
+
+
 .wrapper h3 {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif; 

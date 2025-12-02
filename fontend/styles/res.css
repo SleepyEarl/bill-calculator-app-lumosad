@@ -80,3 +80,33 @@ table {
   margin-right: 20px;
   width: 600px;
 }
+
+.empty-row {
+    text-align: center;
+}
+
+.empty-message {
+    color: #999;
+    padding: 30px;
+    font-style: italic;
+}
+
+.empty-message a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.empty-message a:hover {
+    text-decoration: underline;
+}
+
+/* Result Section */
+#result {
+    margin-top: 30px;
+}
+
+#result h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
