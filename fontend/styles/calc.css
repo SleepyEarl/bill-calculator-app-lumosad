@@ -1,4 +1,4 @@
-* {
+  * {
     text-decoration: none;
 }
  
@@ -153,3 +153,80 @@ table tr:nth-child(even) {
 table tr:hover {
     background-color: #1f1f1f;
 }
+
+@media (max-width: 768px) {
+
+    .nav {
+        padding: 10px 20px;
+        background-color: #1d1c1b;
+    }
+
+    .logo {
+        flex-basis: auto;
+        position: static;
+    }
+
+    .logo-img {
+        margin: 0 !important;
+        height: 55px;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .wrapper {
+        width: 90% !important;
+        padding: 25px 20px !important;
+        margin: 80px auto !important;
+        box-sizing: border-box;
+    }
+
+    .wrapper h2 {
+        margin: 0 0 25px 0 !important;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .wrapper label {
+        padding: 10px 0 5px 0 !important;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .input-box input {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 12px 15px !important;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .wrapper button {
+        width: 100% !important;
+        margin: 20px 0 0 0 !important;
+    }
+
+    /* Result text */
+    #result {
+        max-width: 100% !important;
+        margin: 10px auto !important;
+        font-size: 17px;
+    }
+
+    /* Table responsive */
+    table {
+        width: 100% !important;
+        margin: 20px auto !important;
+        overflow-x: auto;
+        display: block;
+    }
+
+    table th, table td {
+        padding: 5px 5px !important;
+        margin-top: 1px;
+        font-size: 14px;
+    }
+}
+
+

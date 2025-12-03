@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
 
 * {
@@ -11,28 +10,28 @@ html {
 }
 
 body {
-    background-color: #363332; 
-    min-height: 100vh; 
+    background-color: #363332;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; 
-    margin: 0; 
+    flex-direction: column;
+    margin: 0;
 }
 
 
 /*-- Navbar section --- */
 .navbar {
     display: flex;
-    justify-content: space-between; 
-    font-family: 'Titillium Web'; 
+    justify-content: space-between;
+    font-family: 'Titillium Web';
     text-transform: uppercase;
     padding: 15px 50px;
     backdrop-filter: blur(10px);
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    left: 50%; 
+    left: 50%;
     transform: translateX(-50%);
-    width: 90%; 
+    width: 90%;
     flex-shrink: 0;
 }
 
@@ -44,42 +43,42 @@ body {
 /* -- logo section -- */
 .logo {
     display: flex;
-    align-items: center; 
-    gap: 0px; 
-	flex-basis: 150px;
-	flex-shrink: 0;
+    align-items: center;
+    gap: 0px;
+    flex-basis: 150px;
+    flex-shrink: 0;
 }
 
 .logo-img {
-	display: flex;
-    height: 70px; 
+    display: flex;
+    height: 70px;
     width: auto;
 }
 
 .logo a {
-	margin: 0;
+    margin: 0;
     color: white;
     font-size: 20px;
     font-weight: bold;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 /* -- menu section */
 .menu {
-	flex-grow: 1;
-	text-align: center;
+    flex-grow: 1;
+    text-align: center;
 }
 
 ul {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    padding: 0; 
+    padding: 0;
     margin: 0;
 }
 
 ul li a {
-	text-decoration: none;	
+    text-decoration: none;
     color: white;
 }
 
@@ -88,33 +87,35 @@ ul li a:hover {
 }
 
 .menu ul {
-    display: inline-block; 
+    display: inline-block;
     padding: 0;
     margin: 0;
 }
 
 .menu ul li {
     display: inline-block;
-    margin: 0 15px; 
+    margin: 0 15px;
     list-style: none;
     font-size: 16px;
 }
 
 /* -- buttons section -- */
 .buttons {
-	text-align: right;	
+    text-align: right;
     display: flex;
-	align-items: center;
-	justify-content: flex-end;	
-	gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
 }
-.signIn, .signUp {
+
+.signIn,
+.signUp {
     background-color: transparent;
     border: 1px solid white;
-	transition: .3s ease;
-    border-radius: 20px; 
+    transition: .3s ease;
+    border-radius: 20px;
     color: white;
-    padding: 10px 15px; 
+    padding: 10px 15px;
     width: 100px;
     font-size: 15px;
     cursor: pointer
@@ -122,22 +123,22 @@ ul li a:hover {
 
 .signIn {
     border: none;
-    border-radius: 0; 
-    padding: 10px 15px; 
+    border-radius: 0;
+    padding: 10px 15px;
 }
 
 .signUp:hover {
-	background-color: rgb(224, 106, 37);
+    background-color: rgb(224, 106, 37);
 }
 
-.signIn:hover{
+.signIn:hover {
     text-decoration: underline;
 }
 
 .buttons button a {
     text-decoration: none;
     color: inherit;
-    display: block; 
+    display: block;
     padding: 0;
     width: 100%;
 }
@@ -145,7 +146,7 @@ ul li a:hover {
 /* -- content section -- */
 
 .content {
-    margin: 250px auto; 
+    margin: 250px auto;
     margin-bottom: 35px;
     text-align: center;
     color: white;
@@ -154,52 +155,52 @@ ul li a:hover {
 }
 
 
-.content .par{
+.content .par {
     text-align: center;
     padding-bottom: 5px;
     font-size: 20px;
     font-family: 'Titillium Web';
-    line-height: 1.9; 
+    line-height: 1.9;
     margin: 0 auto 40px auto;
 }
 
-.content h1 { 
+.content h1 {
     font-family: 'Titillium Web';
     font-size: 35px;
     margin-top: 150px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     letter-spacing: 2px;
 }
 
 .content .start-now {
-	width: 160px;
-	height: 40px;
-	background: rgb(224, 89, 39);
-	border: none;
-	border-radius: 10px;
-	font-size: 20px;
-	cursor: pointer;
+    width: 160px;
+    height: 40px;
+    background: rgb(224, 89, 39);
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .content .start-now a {
-	text-decoration: none;
-	color: white;
-	transition: .3s ease;
+    text-decoration: none;
+    color: white;
+    transition: .3s ease;
 }
 
 .start-now:hover {
-	background-color: rgb(145, 43, 3);
+    background-color: rgb(145, 43, 3);
 }
 
 .how {
-    scroll-margin-top: 50px;  
+    scroll-margin-top: 50px;
     margin: 350px auto;
     padding: 40px 100px;
     max-width: 900px;
     border-radius: 20px;
     text-align: center;
     color: white;
-    font-family: 'Titillium Web' ;
+    font-family: 'Titillium Web';
 }
 
 .how h2 {
@@ -287,6 +288,7 @@ ul li a:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: scale(1.03);
 }
+
 .contact-item i {
     font-size: 30px;
 }
@@ -304,71 +306,104 @@ ul li a:hover {
 
 @media (max-width: 768px) {
 
-.navbar {
-    flex-direction: column;
-    height: 100px;
-    text-align: left;
-    position: static;
-    transform: none;
-    width: 100%;
-    padding: 15px 0;
-}
+    .navbar {
+        flex-direction: column;
+        height: 100px;
+        text-align: left;
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 15px 0;
+    }
 
-.menu ul {
-    display: none;
-}
+    /* HIDE DESKTOP MENU */
+    .menu ul {
+        display: none;
+    }
 
-.menu ul li {
-    margin: 10px 0;
-    font-size: 16px;
-}
+    .menu ul li {
+        margin: 10px 0;
+        font-size: 16px;
+    }
 
-.buttons {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-}
+    .buttons {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.buttons button {
-    width: 150px;
-    font-size: 16px;
-    padding: 10px;
-}
+    .buttons button {
+        width: 150px;
+        font-size: 16px;
+        padding: 10px;
+    }
 
-.content h1 {
-    font-size: 48px;
-    text-align: left;
-    font-weight: bold;
-    line-height: 1.3;
-}
+    /* ============ MOBILE NAVIGATION BUTTON ============ */
 
-.content .par {
-    font-size: 16px;
-}
+    .mobile-nav {
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.content {
-     margin-top: 20px;
-}
 
-.how, .about {
-    padding: 20px 20px;
-    margin: 80px auto;
-}
+    .mobile-nav .nav-links {
+        display: flex;
+        gap: 15px;
+    }
 
-.how p, .about p {
-    font-size: 16px;
-    text-align: center;
-}
+    .mobile-nav .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
 
-.how img, .about img {
-     width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
+    .mobile-nav .nav-links a:hover {
+        color: #ff7a00;
+    }
 
-.contact {
-        margin: 20px;
-        padding: 25px;
+    /* ============================================= */
+
+    .content h1 {
+        font-size: 48px;
+        text-align: left;
+        font-weight: bold;
+        line-height: 1.3;
+    }
+
+    .content .par {
+        font-size: 16px;
+    }
+
+    .content {
+        margin-top: 20px;
+    }
+
+    .how,
+    .about {
+        padding: 20px 20px;
+        margin: 80px auto;
+    }
+
+    .how p,
+    .about p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .how img,
+    .about img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .contact {
+        margin: 5px;
+        padding: 10px;
     }
 
     .contact-item {
@@ -378,5 +413,5 @@ ul li a:hover {
     .contact-item a {
         font-size: 18px;
     }
-}
 
+}

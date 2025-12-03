@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +8,52 @@
     <link rel="stylesheet" href="styles/res.css">
     <link rel="icon" type="image/png" href="img/bill.png">
 </head>
-<body>  
 
-        <nav class="nav">
-            <div class="logo">
+<body>
+
+    <nav class="nav">
+        <div class="logo">
             <img src="img/bill.png" alt="Bill Calculator" class="logo-img">
             <a href="dashboard.html">BillCalculator</a>
-            </div>
-        </nav>
-
-        <div class="wrapper">
-        <h2>Billing History</h2>
-        
-            <div id="Result"></div>
- 
-            <table id="myTable" border="1">
-                    <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Power Consumption (kWh)</th>
-                        <th>Cost Per kWh (₱)</th>
-                        <th>Result (₱)</th>
-                    </tr>
-                </thead>
-                 <tbody>
-                    <!-- Rows will be inserted here via JavaScript -->
-                    <tr class="empty-row">
-                        <td colspan="4" class="empty-message">No calculations yet. <a>Calculate your first bill</a></td>
-                    </tr>
-                </tbody>
-            </table>
-
         </div>
-    
+    </nav>
+
+    <div class="wrapper">
+        <h2>Billing History</h2>
+
+        <div id="Result"></div>
+
+        <table id="myTable" border="1">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Power Consumption (kWh)</th>
+                    <th>Cost Per kWh (₱)</th>
+                    <th>Result (₱)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be inserted here via JavaScript -->
+                <tr class="empty-row">
+                    <td colspan="4" class="empty-message">No calculations yet. <a>Calculate your first bill</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
     <script>
-         document.addEventListener('DOMContentLoaded', async () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             const session = await initAuth();
             if (session) {
                 await loadCalculations();
             }
         });
 
-         async function loadCalculations() {
+        async function loadCalculations() {
             const user = await getCurrentUser();
             if (!user) {
                 return;
@@ -72,7 +74,7 @@
 
                 const table = document.getElementById("myTable");
                 const tbody = table.querySelector('tbody');
-                
+
                 // Clear existing rows (except empty message)
                 tbody.innerHTML = '';
 
@@ -80,7 +82,7 @@
                     // Add each calculation as a row
                     data.forEach(calc => {
                         var row = tbody.insertRow();
-                        
+
                         var cellMonth = row.insertCell(0);
                         var cellPowerConsumption = row.insertCell(1);
                         var cellCostPerKwh = row.insertCell(2);
@@ -115,7 +117,8 @@
             }
         }
     </script>
-        
-    
+
+
 </body>
+
 </html>

@@ -130,3 +130,98 @@ body {
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+
+    body {
+        background: #2d2928;
+        padding: 25px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .logo-title-container {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    .logo-img {
+        width: 85px;
+        height: 85px;
+        margin: 0 auto 10px;
+    }
+
+    .logo-title-container h1 a {
+        font-size: 28px;
+        margin: 0;
+    }
+
+    .LogReg {
+        display: none;
+    }
+
+    .input-box {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 10px;
+        border: 1px solid #666;
+        background: transparent;
+    }
+
+    .remember-forgot {
+        justify-content: flex-end;
+        margin: 5px 0 50px;
+        font-size: 10px;
+    }
+
+ 
+    .wrapper .btn {
+        width: 100%;
+        margin: 10px 0 25px;
+        height: 50px;
+        background: #ff7a00;
+        font-size: 17px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    .register-link {
+        margin-top: 25px;
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    .social-login {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .social-login img {
+        width: 42px;
+        height: 42px;
+        margin: 0 12px;
+    }
+
+    .register-link p a {
+        color: #ff7a00;
+        font-weight: 600;
+    }
+}

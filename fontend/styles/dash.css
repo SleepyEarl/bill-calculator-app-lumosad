@@ -17,6 +17,7 @@ body {
     padding: 15px 50px;
     align-items: center;
 	flex-shrink: 0;
+    position: sticky;
 }
 
 .logo {
@@ -42,7 +43,6 @@ body {
 }
 
 .wrapper {       
-      
     width: auto;      
     background: #494949;
     color: white;    border-radius: 25px;
