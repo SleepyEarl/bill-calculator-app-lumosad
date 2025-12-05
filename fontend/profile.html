@@ -21,17 +21,6 @@
     <div class="wrapper">
         <h1>My Profile</h1>
 
-        <div class="prof">
-            <img src="img/stop.jpg" class="prof-img">
-        </div>
-
-
-        <div class="buttons">
-            <button class="change"><a href="#">Change</a></button>
-            <button class="remove"><a href="#">Remove</a></button>
-        </div>
-
-
         <form onsubmit="event.preventDefault(); handleProfileUpdate();">
             <div class="input-group">
                 <label for="profile_name"></label>
@@ -85,6 +74,12 @@
                 if (user.email) {
                     document.getElementById('profile_email').value = user.email;
                 }
+                if (user.user_metadata?.phone) {
+                    document.getElementById('profile_phone').value = user.user_metadata.phone;
+                }
+                if (user.user_metadata?.address) {
+                    document.getElementById('profile_address').value = user.user_metadata.address;
+                }  
             }
         }
 
@@ -102,14 +97,13 @@
 
             try {
                 // Update user metadata
-                const { data, error } = await supabaseClient.auth.updateUser({
-                    data: {
-                        full_name: name,
-                        phone: phone,
-                        address: address
-                    }
-                });
-
+               const { data, error } = await supabaseClient.auth.updateUser({
+                            data: {
+                            full_name: name,
+                            phone: phone,
+                            address: address
+                        }
+                    });
                 if (error) {
                     alert('Error updating profile: ' + error.message);
                     return;

@@ -62,10 +62,7 @@
 
 
                 if (
-                    !month.value ||
-                    !power_consumption.value ||
-                    !cost.value
-                ) {
+                    !month.value ||!power_consumption.value ||!cost.value) {
                     alert("Please fill in all fields!");
                     return;
                 }
@@ -76,9 +73,6 @@
                     window.location.href = "signin.html";
                     return;
                 }
-
-
-
 
                 let result_value =
                     parseFloat(cost.value) *

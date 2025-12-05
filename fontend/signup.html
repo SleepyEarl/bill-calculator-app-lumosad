@@ -42,6 +42,7 @@
             
 
             <button type="submit" class="btn">Register</button>
+
             <div class="register-link">
                 <p>Already have an account? <a href="signin.html">Sign in</a></p>
             </div>
@@ -54,9 +55,9 @@
         <script>
             // Redirect if already logged in
              document.querySelector("form").addEventListener("submit", async (e) => {
-        e.preventDefault(); 
-        handleRegister();
-    });
+            e.preventDefault(); 
+             handleRegister();
+            });
 
     async function handleRegister() {
         const name = document.getElementById("reg_name").value;
@@ -74,7 +75,7 @@
             return;
         }
 
-        if (password.length < 10) {
+        if (password.length < 7) {
             alert("Password must be at least 10 characters long!");
             return;
         }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+
 * {
     text-decoration: none;
 }
@@ -16,8 +18,7 @@ body {
     font-family: Arial, Helvetica, sans-serif; 
     padding: 15px 50px;
     align-items: center;
-	flex-shrink: 0;
-    position: sticky;
+	flex-shrink: 0;    position: sticky;
 }
 
 .logo {
@@ -25,6 +26,7 @@ body {
     align-items: center;  
 	flex-basis: 150px;
 	flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .logo-img { 
@@ -45,6 +47,8 @@ body {
 .wrapper {       
     width: auto;      
     background: #494949;
+    flex-wrap: wrap;
+    display: flex;
     color: white;    border-radius: 25px;
     padding: 65px 250px;
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
@@ -63,16 +67,16 @@ body {
 
 .wrapper h1 {
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif; 
-    font-size: 35px;
+    font-family: 'Titillium Web';  
+    font-size: 40px;
     text-align: center;
-    margin: 5px 0 50px 0px;
+    margin: 0 0 60px 0px;
 }
 
 .wrapper p {
     text-decoration: none;
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
     text-align: center;
@@ -81,7 +85,7 @@ body {
 
 .wrapper h3 {
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: 'Titillium Web'; 
     font-size: 25px;
     text-align: center;
     margin: 25px 0 10px 0px;
@@ -90,15 +94,15 @@ body {
 .buttons .btn{
     width: 345px;
     margin: 5px 0 10px 20px;
-    height: 50px;
+    height: 100px;
     background: rgb(236, 102, 24);
     border: none;
     outline: none;
-    font-weight: normal;
+    font-family: 'Titillium Web'; 
     border-radius: 8px;
     box-shadow: 3px 5px 3px 2px rgba(41, 41, 41, 0.5);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
     color: white;
     font-weight: 600; 
     transition: 0.3s ease;
@@ -121,10 +125,6 @@ table {
     width: 480px;
 }
 
-
-
-
-/* --  MOBILE RESPONSIVE -- */
 
 @media (max-width: 768px) {
 

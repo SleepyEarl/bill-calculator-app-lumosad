@@ -222,9 +222,9 @@ ul li a:hover {
 }
 
 .about {
-    scroll-margin-top: 50px;
-    margin: 150px auto;
+    margin: 100px auto;
     padding: 40px 150px;
+    margin-top: -70px;
     max-width: 900px;
     border-radius: 20px;
     text-align: center;
