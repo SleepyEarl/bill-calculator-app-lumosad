@@ -1,5 +1,7 @@
 * {
     text-decoration: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -8,15 +10,21 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 15px 50px;
+    padding: 12px 30px;
     align-items: center;
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    background-color: #363332;
+    z-index: 100;
 }
 
 .logo {
@@ -24,151 +32,123 @@ body {
     align-items: center;
     flex-basis: 150px;
     flex-shrink: 0;
+    flex-grow: 1;
 }
 
 .logo-img {
     display: flex;
-    margin: 0 0 0 685px;
-    height: 75px;
+    margin: 0;
+    height: 60px;
     width: auto;
 }
 
 .logo a {
     margin: 0;
+    margin-left: 1px;
     color: white;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none;
 }
 
 .wrapper {
-
-    width: auto;
+    width: 100%;
+    max-width: 1000px;
     background: #494949;
     color: white;
-    border-radius: 25px;
-    padding: 55px 400px;
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
-    margin: 50px auto;
-    margin-top: 13px;
+    border-radius: 20px;
+    padding: 40px 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
     position: relative;
+    flex: 1;
 }
 
-.wrapper h2 {
+.wrapper h1 {
     text-align: center;
-    margin-top: -35px;
-    font-size: 29px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 30px 0;
+    font-size: 35px;
+    font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
     color: #ffffff;
 }
 
-.wrapper label {
-    display: block;
-    padding: 0 0 0 545px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-table,
-th,
-td {
-    border: 1px solid rgb(255, 255, 255);
+/* Table Styles */
+.results-table {
+    width: 100%;
     border-collapse: collapse;
-    padding: 8px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 20px;
 }
 
-table {
-    margin-right: 20px;
-    width: 710px;
-}
-
-.empty-row {
-    text-align: center;
-}
-
-.empty-message {
-    color: #999;
-    padding: 30px;
-    font-style: italic;
-}
-
-.empty-message a {
-    color: #4CAF50;
-    text-decoration: none;
+.results-table th {
+    background-color: rgb(236, 102, 24);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.empty-message a:hover {
-    text-decoration: underline;
+.results-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#result {
-    margin-top: 30px;
+.results-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-#result h3 {
-    margin-bottom: 20px;
-    color: #333;
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
 }
 
 @media (max-width: 768px) {
-
-
     .nav {
-        padding: 10px 20px;
-        background-color: #1d1c1b;
-    }
-
-    .logo {
-        flex-basis: auto;
-        position: static;
+        padding: 10px 15px;
     }
 
     .logo-img {
-        margin: 0 !important;
-        height: 55px;
+        margin: 0;
+        height: 50px;
     }
 
     .logo a {
-        font-size: 20px;
+        font-size: 18px;
+        margin-left: 10px;
     }
 
     .wrapper {
-        width: 90% !important;
-        padding: 25px 20px !important;
-        margin: 80px auto !important;
-        box-sizing: border-box;
+        margin: 10px 10px;
+        padding: 25px 20px;
+        max-width: calc(100% - 20px);
     }
 
-    .wrapper h2 {
-        margin-top: 0 !important;
-        font-size: 24px;
+    .wrapper h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
     }
 
-    .wrapper label {
-        padding: 10px 0 !important;
-        text-align: left;
+    .results-table th,
+    .results-table td {
+        padding: 8px 10px;
+        font-size: 13px;
     }
 
-    table {
-        width: 100% !important;
-        display: block;
-        overflow-x: auto;
-        margin: 20px auto !important;
-    }
-
-    th,
-    td {
-        padding: 6px !important;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #result {
-        margin-top: 20px !important;
-        text-align: center;
+    .delete-btn {
+        padding: 6px 8px;
+        font-size: 12px;
     }
 }

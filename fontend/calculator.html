@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Calculator Calculator</title>
+    <title>Bill Calculator</title>
     <link rel="stylesheet" href="styles/calc.css">
     <link rel="icon" type="image/png" href="img/bill.png">
 </head>
@@ -19,151 +19,117 @@
     </nav>
 
     <div class="wrapper">
-        <h2>Electricity Bill Calculator</h2>
+        <h1>Electricity Bill Calculator</h1>
 
         <form onsubmit="event.preventDefault();">
-
-            <div class="input-box">
-                <label for="month">Month:</label>
-                <input type="text" id="month" placeholder="e.g. January" required> <br>
+            <div class="input-group">
+                <label for="month">Month</label>
+                <input type="text" id="month" placeholder="e.g. January" required>
             </div>
 
-            <div class="input-box">
-                <label for="consumption">Power Consumption:</label>
-                <input type="number" id="power_consumption" required> <br>
+            <div class="input-group">
+                <label for="power_consumption">Power Consumption (kWh)</label>
+                <input type="number" id="power_consumption" placeholder="Enter kWh" required>
             </div>
 
-            <div class="input-box">
-                <label for="cost">Cost per kilowatt-hour:</label>
-                <input type="number" id="cost" required> <br>
+            <div class="input-group">
+                <label for="cost">Cost per kWh (₱)</label>
+                <input type="number" id="cost" placeholder="Enter cost" required>
             </div>
 
+            <button type="button" id="btn_calculate" class="btn-calculate">Calculate</button>
         </form>
 
-        <div id="result"></div>
+        <div id="result" class="result-display"></div>
 
-        <button id="btn_calculate" type="button">Calculate</button>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-        <script src="js/supabase-config.js"></script>
-        <script src="js/auth.js"></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", async () => {
-                await initAuth();
-            });
-
-            btn_calculate.addEventListener("click", async function () {
-                let month = document.getElementById("month");
-                let power_consumption =
-                    document.getElementById("power_consumption");
-                let cost = document.getElementById("cost");
-                let result = document.getElementById("result");
-
-
-                if (
-                    !month.value ||!power_consumption.value ||!cost.value) {
-                    alert("Please fill in all fields!");
-                    return;
-                }
-
-                const user = await getCurrentUser();
-                if (!user) {
-                    alert("You must be logged in to save calculations!");
-                    window.location.href = "signin.html";
-                    return;
-                }
-
-                let result_value =
-                    parseFloat(cost.value) *
-                    parseFloat(power_consumption.value);
-
-
-                result.innerHTML = `Your bill is: ₱ ${result_value.toFixed(
-                    2
-                )}`;
-
-                try {
-                    const { data, error } = await supabaseClient
-                        .from("calculations")
-                        .insert([
-                            {
-                                user_id: user.id,
-                                month: month.value,
-                                power_consumption: parseFloat(
-                                    power_consumption.value
-                                ),
-                                cost_per_kwh: parseFloat(cost.value),
-                                result: result_value,
-                            },
-                        ])
-                        .select();
-
-                    if (error) {
-                        console.error("Error saving calculation:", error);
-                        alert(
-                            "Calculation saved locally, but failed to save to database: " +
-                            error.message
-                        );
-                    } else {
-                        console.log("Calculation saved:", data);
-                    }
-                } catch (error) {
-                    console.error("Error:", error);
-                    alert("Error saving calculation: " + error.message);
-                }
-
-                // Get or create the results table
-                let table = document.getElementById("myTable"); // Changed from tableR to myTable for consistency
-
-                if (!table) {
-                    result.innerHTML += `
-                    <table id="myTable" border="1">
-                        <thead>
-                            <tr>
-                                <th>Month</th>
-                                <th>Power Consumption (kWh)</th>
-                                <th>Cost Per kWh (₱)</th>
-                                <th>Result (₱)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                `;
-                    table = document.getElementById("myTable");
-                }
-
-
-                // Insert new row at the first position (top of table)
-                var row = table.getElementsByTagName('tbody')[0].insertRow(0); // Insert at position 0 in tbody
-
-                // Insert new cells with proper naming
-                var cellMonth = row.insertCell(0);
-                var cellPowerConsumption = row.insertCell(1);
-                var cellCostPerKwh = row.insertCell(2);
-                var cellResult = row.insertCell(3);
-
-                // Add data to cells
-                cellMonth.innerHTML = month.value;
-                cellPowerConsumption.innerHTML = parseFloat(
-                    power_consumption.value // **FIXED TYPO HERE**
-                ).toFixed(2);
-                cellCostPerKwh.innerHTML =
-                    "₱ " + parseFloat(cost.value).toFixed(2);
-                cellResult.innerHTML = "₱ " + result_value.toFixed(2);
-
-                // Clear form inputs
-                month.value = "";
-                power_consumption.value = "";
-                cost.value = "";
-            });
-        </script>
-
-
+        <table id="myTable" class="results-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Power Consumption (kWh)</th>
+                    <th>Cost Per kWh (₱)</th>
+                    <th>Result (₱)</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            await initAuth();
+        });
 
+        document.getElementById("btn_calculate").addEventListener("click", async function () {
+            let month = document.getElementById("month");
+            let power_consumption = document.getElementById("power_consumption");
+            let cost = document.getElementById("cost");
+            let result = document.getElementById("result");
+
+            if (!month.value || !power_consumption.value || !cost.value) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            const user = await getCurrentUser();
+            if (!user) {
+                alert("You must be logged in to save calculations!");
+                window.location.href = "signin.html";
+                return;
+            }
+
+            let result_value = parseFloat(cost.value) * parseFloat(power_consumption.value);
+
+            result.innerHTML = `<div class="bill-result">Your Monthly Bill: <strong>₱ ${result_value.toFixed(2)}</strong></div>`;
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from("calculations")
+                    .insert([
+                        {
+                            user_id: user.id,
+                            month: month.value,
+                            power_consumption: parseFloat(power_consumption.value),
+                            cost_per_kwh: parseFloat(cost.value),
+                            result: result_value,
+                        },
+                    ])
+                    .select();
+
+                if (error) {
+                    console.error("Error saving calculation:", error);
+                    alert("Calculation saved locally, but failed to save to database: " + error.message);
+                } else {
+                    console.log("Calculation saved:", data);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error saving calculation: " + error.message);
+            }
+
+            let table = document.getElementById("myTable");
+            table.style.display = "table";
+
+            var row = table.getElementsByTagName('tbody')[0].insertRow(0);
+            var cellMonth = row.insertCell(0);
+            var cellPowerConsumption = row.insertCell(1);
+            var cellCostPerKwh = row.insertCell(2);
+            var cellResult = row.insertCell(3);
+
+            cellMonth.innerHTML = month.value;
+            cellPowerConsumption.innerHTML = parseFloat(power_consumption.value).toFixed(2);
+            cellCostPerKwh.innerHTML = "₱ " + parseFloat(cost.value).toFixed(2);
+            cellResult.innerHTML = "₱ " + result_value.toFixed(2);
+
+            month.value = "";
+            power_consumption.value = "";
+            cost.value = "";
+        });
+    </script>
 
 </body>
 

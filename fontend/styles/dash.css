@@ -1,118 +1,133 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600");
 
 * {
-    text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
- 
+
 body {
-    background-color: #363332; 
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column; 
-    margin: 0; 
+  background-color: #363332;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between; 
-    font-family: Arial, Helvetica, sans-serif; 
-    padding: 15px 50px;
-    align-items: center;
-	flex-shrink: 0;    position: sticky;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12px 30px;
+  align-items: center;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  background-color: #363332;
+  z-index: 100;
 }
 
 .logo {
-    display: flex;
-    align-items: center;  
-	flex-basis: 150px;
-	flex-shrink: 0;
-    flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-basis: 150px;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 
-.logo-img { 
-    display: flex; 
-    margin: 0 0 0 685px;
-    height: 75px; 
-    width: auto; 
+.logo-img {
+  display: flex;
+  margin: 0;
+  height: 60px;
+  width: auto;
 }
 
 .logo a {
-	margin: 0;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none; 
+  margin: 0;
+  margin-left: 1px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.wrapper {       
-    width: auto;      
-    background: #494949;
-    flex-wrap: wrap;
-    display: flex;
-    color: white;    border-radius: 25px;
-    padding: 65px 250px;
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
-    margin: 50px auto;      
-    position: relative;    
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  background: #494949;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  position: relative;
+  flex: 1;
 }
-
 
 .buttons {
-	text-align: center;	
-    display: flex;
-	align-items: center;
-	justify-content: center;	
-	gap: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .wrapper h1 {
-    text-decoration: none;
-    font-family: 'Titillium Web';  
-    font-size: 40px;
-    text-align: center;
-    margin: 0 0 60px 0px;
+  text-decoration: none;
+  font-family: "Titillium Web";
+  font-size: 35px;
+  text-align: center;
+  margin: 0 0 10px 0;
 }
 
 .wrapper p {
-    text-decoration: none;
-    margin-top: 5px;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    align-items: center;
-    text-align: center;
+  text-decoration: none;
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #ddd;
 }
-
 
 .wrapper h3 {
-    text-decoration: none;
-    font-family: 'Titillium Web'; 
-    font-size: 25px;
-    text-align: center;
-    margin: 25px 0 10px 0px;
+  text-decoration: none;
+  font-family: "Titillium Web";
+  font-size: 22px;
+  text-align: center;
+  margin: 20px 0 10px 0;
 }
 
-.buttons .btn{
-    width: 345px;
-    margin: 5px 0 10px 20px;
-    height: 100px;
-    background: rgb(236, 102, 24);
-    border: none;
-    outline: none;
-    font-family: 'Titillium Web'; 
-    border-radius: 8px;
-    box-shadow: 3px 5px 3px 2px rgba(41, 41, 41, 0.5);
-    cursor: pointer;
-    font-size: 25px;
-    color: white;
-    font-weight: 600; 
-    transition: 0.3s ease;
+.buttons .btn {
+  width: 200px;
+  margin: 5px;
+  padding: 15px;
+  height: auto;
+  background: rgb(236, 102, 24);
+  border: none;
+  outline: none;
+  font-family: "Titillium Web";
+  border-radius: 8px;
+  box-shadow: 3px 5px 3px 2px rgba(41, 41, 41, 0.5);
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-.buttons .btn:hover{
-    background-color: rgb(175, 49, 3);
+.buttons .btn:hover {
+  background-color: rgb(175, 49, 3);
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid rgb(255, 255, 255);
   border-collapse: collapse;
   padding: 8px;
@@ -121,63 +136,248 @@ table, th, td {
 }
 
 table {
-    margin: 20px auto;  
-    width: 480px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 600px;
 }
 
-
-@media (max-width: 768px) {
-
-.navbar {
-    display: flex;
-    justify-content: space-between; 
-    font-family: Arial, Helvetica, sans-serif; 
-    padding: 15px 50px;
-    align-items: center;
-	flex-shrink: 0;
+.tips-section {
+  margin-top: 40px;
+  width: 100%;
 }
 
-.logo-img {
-    margin: 0;           
-    height: 100px; 
+.tips-section h2 {
+  margin: 0 0 20px 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 24px;
 }
 
-.wrapper {
-    margin: 20px 10px;
-    height: auto;       
-    padding: 30px 15px;
+.tips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  width: 100%;
 }
 
-.wrapper h1 {
-    font-size: 28px;
+.tip-card {
+  background: rgba(128, 62, 1, 0.699);
+  border: 1px solid rgba(236, 102, 24, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}
+.tip-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: rgb(236, 102, 24);
+  font-family: "Titillium Web";
 }
 
-.wrapper h3 {
-     font-size: 20px;
+.tip-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #ddd;
 }
 
-.buttons {
-    flex-direction: column;
+.recent-results {
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
 }
 
-.buttons .btn {
-    box-shadow: none;
-    width: 270px;        
-    margin: 8px 0;
-    font-size: 20px;
+.recent-results h2 {
+  margin: 0 0 15px 0;
+  color: #ffffff;
+  font-family: "arial", sans-serif;
+  text-align: center;
+  font-size: 24px;
 }
 
-table {
-    width: 100%; 
-    margin: 20px 0;
+.result-box {
+  background: rgb(39, 39, 39);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
-table, th, td {
+.calculation-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.calc-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.label {
+  font-weight: 600;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.calc-result {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.result-label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.result-value {
+  display: block;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif ;
+  font-weight: bold;
+}
+
+.no-calculation {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  margin: 0;
+}
+
+.no-calculation a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 844px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav {
+    padding: 10px 15px;
+  }
+
+  .logo-img {
+    margin: 0;
+    height: 50px;
+  }
+
+  .logo a {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .wrapper {
+    margin: 10px 10px;
+    padding: 20px 20px;
+    max-width: calc(100% - 20px);
+  }
+
+  .wrapper h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .wrapper p {
     font-size: 14px;
-}
+    margin-bottom: 15px;
+  }
 
-.table-container {
-    width: 110%;
-    overflow-x: auto;
-}
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .buttons .btn {
+    width: 250px;
+    max-width: 250px;
+    box-shadow: none;
+    padding: 12px;
+    font-size: 16px;
+    margin: 5px auto;
+  }
+
+  table {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .calculation-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .calc-info {
+    gap: 10px;
+  }
+
+  .result-value {
+    font-size: 22px;
+  }
+
+  .recent-results {
+    margin-top: 15px;
+  }
+
+  .recent-results h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .result-box {
+    padding: 15px;
+  }
+
+  .tips-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tips-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .tip-card {
+    padding: 15px;
+  }
+
+  .tip-card h3 {
+    font-size: 14px;
+  }
+
+  .tip-card p {
+    font-size: 12px;
+  }
 }

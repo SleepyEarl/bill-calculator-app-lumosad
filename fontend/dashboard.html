@@ -9,53 +9,126 @@
 </head>
 <body>  
 
-        <nav class="nav">
-            <div class="logo">
+    <nav class="nav">
+        <div class="logo">
             <img src="img/bill.png" alt="Bill Calculator" class="logo-img">
             <a href="#">BillCalculator</a>
-            </div>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="wrapper">
-            <form action="">
+    <div class="wrapper">
+        <h1>Dashboard</h1>
+        <p class="welcome-text">Welcome back! Manage your electricity bill calculations.</p>
 
-                <h1>Dashboard</h1>
-                <p class="welcome-text">Welcome back! Manage your electricity bill calculations.</p>
-
-            <div class="buttons">
+        <div class="buttons">
             <a href="calculator.html">
-                <button type="button" class="btn">⌨Calculator</button>
+                <button type="button" class="btn">⌨ Calculator</button>
             </a>
             
             <a href="profile.html">
-                <button type="button" class="btn">👤Profile</button>
+                <button type="button" class="btn">👤 Profile</button>
             </a>
                 
             <a href="results.html">
-                <button type="button" class="btn">📋Results</button>
-                </a>
+                <button type="button" class="btn">📋 Results</button>
+            </a>
+        </div>
 
-            </table>
-                
+        <section class="recent-results">
+            <h2>Latest Calculation</h2>
+            <div id="resultBox" class="result-box">
+                <p class="no-calculation">No calculations yet. <a href="calculator.html">Calculate your first bill</a></p>
             </div>
+        </section>
+
+        <section class="tips-section">
+            <h2>💡 Quick Tips</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <h3>📊 How to Calculate</h3>
+                    <p>Your electricity bill = Power Consumption (kWh) × Cost Per kWh (₱)</p>
+                </div>
+                <div class="tip-card">
+                    <h3>💰 Save on Bills</h3>
+                    <p>Unplug devices when not in use. LED bulbs use 75% less energy than incandescent bulbs.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>❄️ Air Conditioner Tips</h3>
+                    <p>Set temperature to 25°C and use it for 8 hours daily to reduce consumption significantly.</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>  
     <script>
+        // Load page data
         document.addEventListener('DOMContentLoaded', async () => {
             const session = await initAuth();
-            if(session) {
+            if (session) {
                 const user = await getCurrentUser();
-                if(user) {
+                if (user) {
+                    // Update welcome message with user name
                     const welcomeText = document.querySelector('.welcome-text');
                     const userName = user.user_metadata?.full_name || user.email;
-                    if(welcomeText) {
-                        welcomeText.textContent = `Welcome back, ${userName}! Manage your electricity bill calculations.`;
-                    }
+                    welcomeText.textContent = `Welcome back, ${userName}! Manage your electricity bill calculations.`;
+
+                    // Load latest calculation
+                    loadLatestCalculation(user.id);
                 }
             }
         });
+
+        // Load the latest calculation from database
+        async function loadLatestCalculation(userId) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from("calculations")
+                    .select("*")
+                    .eq("user_id", userId)
+                    .order("created_at", { ascending: false })
+                    .limit(1);
+
+                if (error) {
+                    console.error("Error:", error);
+                    return;
+                }
+
+                const resultBox = document.getElementById("resultBox");
+
+                if (data && data.length > 0) {
+                    const calc = data[0];
+                    resultBox.innerHTML = `
+                        <div class="calculation-card">
+                            <div class="calc-info">
+                                <div class="info-item">
+                                    <span class="label">Month:</span>
+                                    <span class="value">${calc.month}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Power Consumption:</span>
+                                    <span class="value">${parseFloat(calc.power_consumption).toFixed(2)} kWh</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Cost Per kWh:</span>
+                                    <span class="value">₱ ${parseFloat(calc.cost_per_kwh).toFixed(2)}</span>
+                                </div>
+                            </div>
+                            <div class="calc-result">
+                                <span class="result-label">Total Bill:</span>
+                                <span class="result-value">₱ ${parseFloat(calc.result).toFixed(2)}</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    resultBox.innerHTML = '<p class="no-calculation">No calculations yet. <a href="calculator.html">Calculate your first bill</a></p>';
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
     </script>
 </body>
 </html>

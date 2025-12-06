@@ -1,201 +1,209 @@
 * {
-    text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
- 
+
 body {
-    background-color: #363332; 
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column; 
-    margin: 0; 
+  background-color: #363332;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between; 
-    font-family: Arial, Helvetica, sans-serif; 
-    padding: 15px 50px;
-    align-items: center;
-	flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12px 30px;
+  align-items: center;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  background-color: #363332;
+  z-index: 100;
 }
 
 .logo {
-    display: flex;
-    align-items: center;  
-	flex-basis: 150px;
-	flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-basis: 150px;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 
-.logo-img { 
-    display: flex; 
-    margin: 0 0 0 685px;
-    height: 75px; 
-    width: auto; 
+.logo-img {
+  display: flex;
+  margin: 0;
+  height: 60px;
+  width: auto;
 }
 
 .logo a {
-	margin: 0;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none; 
+  margin: 0;
+  margin-left: 1px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .wrapper {
-    width: 650px;
-    height: 600px;
-    background: #494949;
-    color: white;
-    border-radius: 25px;
-    padding: 60px;
-    margin-top: 25px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;  
+  width: 100%;
+  max-width: 800px;
+  background: #494949;
+  color: white;
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  position: relative;
+  flex: 1;
 }
-
 
 .wrapper h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1px;
-    margin-bottom: 80px;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: 35px;
 }
 
-.wrapper h3 {
-    text-decoration: none;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 300px;
-    padding: 20px 5px 0 10px;
-}
-
-
-.logout {
-    background-color: rgb(238, 88, 50);
-    font-size: 15px;
-    border-radius: 14px;
-    margin-top: 20px;
-    color: white;
-    padding: 10px 15px;
-    width: 110px;
-    cursor: pointer;
-    border: none;
-}
-
-.logout:hover{
-    background: rgb(131, 30, 5);
-}
-
-
-.buttons button a {
-    text-decoration: none;
-    color: inherit;
-    display: block; 
-    padding: 0;
-    width: 100%;
-}
-
-
-.input-box label {
-    font-size: 16px;
-    color: white;
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .input-group {
-    margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #ddd;
+  font-weight: 600;
 }
 
 .input-group input {
-    width: 300px;
-    height: 40px;
-    background: white;
-    border: 1px solid rgba(225, 225, 255, .2);
-    border-radius: 10px;
-    font-size: 16px;
-    color: black;
-    padding: 0 20px;
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: 1px solid rgba(225, 225, 255, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  color: black;
+  padding: 0 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
-
 .update-btn {
-    width: 40%;
-    background-color: rgb(238, 88, 50);
-    border: none;
-    padding: 12px;
-    margin-top: 15px;
-    border-radius: 12px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+  width: 150px;
+  background-color: rgb(236, 102, 24);
+  border: none;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .update-btn:hover {
-    background: rgb(131, 30, 5);
+  background: rgb(175, 49, 3);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.logout {
+  background-color: rgb(238, 88, 50);
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px 25px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  min-width: 150px;
+}
+
+.logout:hover {
+  background: rgb(131, 30, 5);
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
 
-    .nav {
-        padding: 10px 20px;
-        background-color: #1d1c1b;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  .nav {
+    padding: 10px 15px;
+  }
 
-    .logo {
-        position: static;
-        flex-basis: auto;
-    }
+  .logo-img {
+    height: 50px;
+    margin: 0;
+  }
 
-    .logo-img {
-        margin: 0 !important;
-        height: 60px;
-    }
+  .logo a {
+    font-size: 18px;
+    margin-left: 10px;
+  }
 
-    .logo a {
-        font-size: 20px;
-        margin-bottom: 0;
-    }
+  .wrapper {
+    margin: 10px 10px;
+    padding: 25px 20px;
+    max-width: calc(100% - 20px);
+    width: auto;
+  }
 
-    .wrapper {
-        width: 90% !important;
-        padding: 40px 8px !important;
-        position: static !important;
-        transform: none !important;
-        margin: 20px auto !important;
-    }
+  .wrapper h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 
-    .wrapper h3 {
-        margin-bottom: 40px !important;
-    }
+  .wrapper form {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
 
+  .input-group {
+    gap: 6px;
+  }
 
-    .prof .prof-img {
-        width: 120px !important;
-        height: 120px !important;
-    }
+  .input-group input {
+    height: 40px;
+    font-size: 14px;
+  }
 
-    .input-group input {
-        width: 75% !important;
-        max-width: 100% !important;
-    }
+  .update-btn {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 8px;
+  }
 
-    .buttons {
-        flex-direction: inherit;
-        gap: 10px;
-    }
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .change, .remove, .update-btn{
-        width: 45% !important;
-    }
+  .logout {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
 }
-
-
-
-

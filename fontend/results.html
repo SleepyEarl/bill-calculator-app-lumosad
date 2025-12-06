@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Calculator Calculator</title>
+    <title>Bill Calculator — History</title>
     <link rel="stylesheet" href="styles/res.css">
     <link rel="icon" type="image/png" href="img/bill.png">
 </head>
@@ -19,44 +19,46 @@
     </nav>
 
     <div class="wrapper">
-        <h2>Billing History</h2>
+        <h1>Billing History</h1>
 
-        <div id="Result"></div>
-
-        <table id="myTable" border="1">
+        <table class="results-table">
             <thead>
                 <tr>
                     <th>Month</th>
-                    <th>Power Consumption (kWh)</th>
-                    <th>Cost Per kWh (₱)</th>
-                    <th>Result (₱)</th>
+                    <th>Consumption (kWh)</th>
+                    <th>Rate (₱)</th>
+                    <th>Total Bill (₱)</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Rows will be inserted here via JavaScript -->
-                <tr class="empty-row">
-                    <td colspan="4" class="empty-message">No calculations yet. <a>Calculate your first bill</a></td>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="5" style="text-align: center; color: #999;">Loading...</td>
                 </tr>
             </tbody>
         </table>
+
+        <p id="emptyMessage" style="display: none; text-align: center; color: #999; margin-top: 20px;">
+            No calculations yet. <a href="calculator.html" style="color: #4caf50;">Calculate your first bill</a>
+        </p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
     <script>
+        // Load calculations when page loads
         document.addEventListener('DOMContentLoaded', async () => {
             const session = await initAuth();
             if (session) {
-                await loadCalculations();
+                loadCalculations();
             }
         });
 
+        // Load all calculations from database
         async function loadCalculations() {
             const user = await getCurrentUser();
-            if (!user) {
-                return;
-            }
+            if (!user) return;
 
             try {
                 const { data, error } = await supabaseClient
@@ -66,57 +68,62 @@
                     .order('created_at', { ascending: false });
 
                 if (error) {
-                    console.error('Error loading calculations:', error);
-                    alert('Error loading calculations: ' + error.message);
+                    console.error('Error:', error);
                     return;
                 }
 
-                const table = document.getElementById("myTable");
-                const tbody = table.querySelector('tbody');
+                const tableBody = document.getElementById('tableBody');
+                const emptyMessage = document.getElementById('emptyMessage');
 
-                // Clear existing rows (except empty message)
-                tbody.innerHTML = '';
+                tableBody.innerHTML = '';
 
                 if (data && data.length > 0) {
-                    // Add each calculation as a row
+                    emptyMessage.style.display = 'none';
+
+                    // Add each calculation to the table
                     data.forEach(calc => {
-                        var row = tbody.insertRow();
-
-                        var cellMonth = row.insertCell(0);
-                        var cellPowerConsumption = row.insertCell(1);
-                        var cellCostPerKwh = row.insertCell(2);
-                        var cellResult = row.insertCell(3);
-
-                        cellMonth.innerHTML = calc.month;
-                        cellPowerConsumption.innerHTML = parseFloat(calc.power_consumption).toFixed(2);
-                        cellCostPerKwh.innerHTML = "₱ " + parseFloat(calc.cost_per_kwh).toFixed(2);
-                        cellResult.innerHTML = "₱ " + parseFloat(calc.result).toFixed(2);
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${calc.month}</td>
+                            <td>${parseFloat(calc.power_consumption).toFixed(2)}</td>
+                            <td>${parseFloat(calc.cost_per_kwh).toFixed(2)}</td>
+                            <td>${parseFloat(calc.result).toFixed(2)}</td>
+                            <td><button onclick="deleteCalculation(${calc.id})" class="delete-btn">Delete</button></td>
+                        `;
+                        tableBody.appendChild(row);
                     });
                 } else {
-                    // Show empty message
-                    var emptyRow = tbody.insertRow();
-                    emptyRow.className = 'empty-row';
-                    var emptyCell = emptyRow.insertCell(0);
-                    emptyCell.colSpan = 4;
-                    emptyCell.className = 'empty-message';
-                    emptyCell.innerHTML = 'No calculations yet. <a href="calculator.html">Calculate your first bill</a>';
+                    emptyMessage.style.display = 'block';
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('Error loading calculations: ' + error.message);
             }
         }
 
-        async function handleLogout() {
-            const success = await signOut();
-            if (success) {
-                window.location.href = 'signin.html';
-            } else {
-                alert('Error logging out. Please try again.');
+        // Delete a calculation
+        async function deleteCalculation(calcId) {
+            if (!confirm('Are you sure you want to delete this?')) {
+                return;
+            }
+
+            try {
+                const { error } = await supabaseClient
+                    .from('calculations')
+                    .delete()
+                    .eq('id', calcId);
+
+                if (error) {
+                    alert('Error deleting: ' + error.message);
+                    return;
+                }
+
+                // Reload the table
+                loadCalculations();
+            } catch (error) {
+                alert('Error: ' + error.message);
             }
         }
     </script>
-
 
 </body>
 
