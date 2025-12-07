@@ -28,7 +28,7 @@
                     <th>Consumption (kWh)</th>
                     <th>Rate (₱)</th>
                     <th>Total Bill (₱)</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -47,7 +47,6 @@
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
     <script>
-        // Load calculations when page loads
         document.addEventListener('DOMContentLoaded', async () => {
             const session = await initAuth();
             if (session) {
@@ -55,7 +54,6 @@
             }
         });
 
-        // Load all calculations from database
         async function loadCalculations() {
             const user = await getCurrentUser();
             if (!user) return;
@@ -80,7 +78,6 @@
                 if (data && data.length > 0) {
                     emptyMessage.style.display = 'none';
 
-                    // Add each calculation to the table
                     data.forEach(calc => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
@@ -100,7 +97,6 @@
             }
         }
 
-        // Delete a calculation
         async function deleteCalculation(calcId) {
             if (!confirm('Are you sure you want to delete this?')) {
                 return;
@@ -117,7 +113,6 @@
                     return;
                 }
 
-                // Reload the table
                 loadCalculations();
             } catch (error) {
                 alert('Error: ' + error.message);
